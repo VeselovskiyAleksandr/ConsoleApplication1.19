@@ -1,26 +1,26 @@
-﻿// ConsoleApplication1.19.2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//Урок 16. Сшиватель дробных чисел
+﻿// ConsoleApplication1.19.4.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//Урок 16. Механическое пианино.
 
 #include <iostream>
-#include <locale.h>
 #include <string>
-#include <cmath>
-#include <sstream>
 using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-	stringstream number;
-	string wholePart, fractionalPart;
-	double enteredNumber;
-	cout << "\nВведите целую часть числа\n";
-	cin >> wholePart;
-	cout << "\nВведите дробную часть числа\n";
-	cin >> fractionalPart;
-	number<< wholePart<<"."<< fractionalPart;
-	 number>> enteredNumber;
-	 cout <<"\n"<<" Ваше число: "<< enteredNumber <<"\n";
+    setlocale(LC_ALL, "Russian");
+    enum musicalNotes {
+        DO,  RE, MI, FA, SOL, LYA, CI
+    };
+    string sheetMusic, melody;
+    cout << "\n Введите музыкальную мелодию ";
+    cin >> sheetMusic;
+    for (int i = 0; i < sheetMusic.size(); i ++ ) {
+          melody[i]
+              << 
+              sheetMusic[i];
+          cout << melody[i];
+    }
+   
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
