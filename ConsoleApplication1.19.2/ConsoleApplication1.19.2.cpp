@@ -4,7 +4,6 @@
 #include <iostream>
 #include <locale.h>
 #include <string>
-#include <cmath>
 #include <sstream>
 using namespace std;
 
