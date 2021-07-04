@@ -4,33 +4,19 @@
 #include <iostream>
 #include <locale.h>
 #include <string>
+#include <sstream>
 using namespace std;
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	string mathAction, number1="", number2="";
+	string mathAction;
 	double  result, result1, result2;
 	char actionSign;
-	int count = 0;
 	cout << "\nВведите математическое действие с двумя числами\n";
 	cin >> mathAction;
-	for (int i = 0; i < mathAction.size(); i++) {
-		if (mathAction[i] == '/' || mathAction[i] == '*' || mathAction[i] == '-' || mathAction[i] == '+') {
-			break;
-		}
-		count++;
-	}
-	for (int i = 0; i < count; i++) {
-	 number1 =number1+mathAction[i];
-	}
-	actionSign = (char)mathAction[count];
-	for (int i = count + 1; i < mathAction.size(); i++) {
-		number2 = number2 + mathAction[i];
-
-	}
-	result1 = stod(number1);
-	result2 = stod(number2);
+	stringstream actionString (mathAction);
+	actionString >> result1>> actionSign >> result2;
 	if (actionSign == '+') {
 		result = result1 + result2;
 	}
@@ -43,7 +29,7 @@ int main()
 	else if (actionSign == '/') {
 		result = result1 / result2;
 	}
-	else {
+    else {
 		cout << "\nУкажите правильно действие.";
 	}
 	cout << "\nРезультат операции: " << result;

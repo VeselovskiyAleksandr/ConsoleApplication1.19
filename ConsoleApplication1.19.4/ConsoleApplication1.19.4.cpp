@@ -3,24 +3,32 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
     enum musicalNotes {
-        DO,  RE, MI, FA, SOL, LYA, CI
+        DO,  RE, MI, FA, SOL, LYA, CI,
     };
-    string sheetMusic, melody;
+    string sheetMusic, melody="", s, str ;
+    int  count = 0, a=0;
+    musicalNotes note;
     cout << "\n Введите музыкальную мелодию ";
     cin >> sheetMusic;
+    
     for (int i = 0; i < sheetMusic.size(); i ++ ) {
-          melody[i]
-              << 
-              sheetMusic[i];
-          cout << melody[i];
+         s= sheetMusic[i];
+         a = stoi(s);
+        
+ // cout << a;
+         note = static_cast<musicalNotes>(a);
+         cout << musicalNotes(a) <<" ";
+         melody += note;
+        
     }
-   
+    cout <<"\n"<< melody;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
