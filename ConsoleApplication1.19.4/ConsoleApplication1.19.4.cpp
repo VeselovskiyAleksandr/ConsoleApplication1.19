@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <cmath>
+
 using namespace std;
 
 int main()
@@ -12,21 +12,42 @@ int main()
     enum musicalNotes {
         DO,  RE, MI, FA, SOL, LYA, CI,
     };
-    string sheetMusic, melody="", s, str ;
-    int  count = 0, a=0;
-    musicalNotes note;
+    string sheetMusic, melody="", note;
+    int noteNumber, count = 0;
     cout << "\n Введите музыкальную мелодию ";
     cin >> sheetMusic;
-    
-    for (int i = 0; i < sheetMusic.size(); i ++ ) {
-         s= sheetMusic[i];
-         a = stoi(s);
-        
- // cout << a;
-         note = static_cast<musicalNotes>(a);
-         cout << musicalNotes(a) <<" ";
-         melody += note;
-        
+    for (int i = 0;i< sheetMusic.size();i++) {
+        note = sheetMusic[i];
+        noteNumber = stoi(note);
+        switch (noteNumber) {
+        case 1:
+            melody += "Do";
+            break;
+        case 2:
+            melody += "Re";
+            break;
+        case 3:
+            melody += "Mi";
+            break;
+        case 4:
+            melody += "Fa";
+            break;
+        case 5:
+            melody += "Sol";
+            break;
+        case 6:
+            melody += "Lya";
+            break;
+        case 7:
+            melody += "Ci";
+            break;
+        default:
+            cout << "\nОшибка. Введите правильно ноты. ";
+   }
+        count++;
+        if (count % 3 == 0) {
+            melody += " ";
+        }
     }
     cout <<"\n"<< melody;
 }
