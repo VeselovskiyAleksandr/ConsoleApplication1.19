@@ -11,7 +11,7 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	enum home{
-		POWER_SUPPLY=1, OUTLET, INDOOR_LIGHT, OUTDOOR_LIGHT, HOME_HEATING, WATER_HEATING, AIR_CONDITIONER
+		POWER_SUPPLY=1, OUTLET=2, INDOOR_LIGHT=4, OUTDOOR_LIGHT=16, HOME_HEATING=32, WATER_HEATING=64, AIR_CONDITIONER=128
 	};
 	string sourceDatasee, time = "", strTempOut="", strTempIn="", strMoveOut="", strLight="";
 	int tempIn, tempOut, colorTemp=5000, timeCount=0, dayCount=0, strCount=0;
