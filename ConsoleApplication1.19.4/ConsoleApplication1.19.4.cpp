@@ -10,44 +10,41 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     enum musicalNotes {
-        DO,  RE, MI, FA, SOL, LYA, CI,
+        DO=1,  RE=2, MI=4, FA=8, SOL=16, LYA=32, CI=64,
     };
+  
     string sheetMusic, melody="", note;
-    int noteNumber, count = 0;
+    int count = 0,  sound;
     cout << "\n Введите музыкальную мелодию ";
     cin >> sheetMusic;
     for (int i = 0;i< sheetMusic.size();i++) {
         note = sheetMusic[i];
-        noteNumber = stoi(note);
-        switch (noteNumber) {
-        case 1:
-            melody += "Do";
-            break;
-        case 2:
-            melody += "Re";
-            break;
-        case 3:
-            melody += "Mi";
-            break;
-        case 4:
-            melody += "Fa";
-            break;
-        case 5:
-            melody += "Sol";
-            break;
-        case 6:
-            melody += "Lya";
-            break;
-        case 7:
-            melody += "Ci";
-            break;
-        default:
-            cout << "\nОшибка. Введите правильно ноты. ";
-   }
-        count++;
-        if (count % 3 == 0) {
-            melody += " ";
+        sound = stoi(note);      
+        if (sound & DO) {
+            melody += "DO";
+      }
+        else if (sound & RE) {
+            melody += "RE";
+     }
+        else if (sound & MI) {
+            melody += "MI";
         }
+        else if (sound & FA) {
+            melody += "FA";
+        }
+        else if (sound & SOL) {
+            melody += "SOL";
+        }
+        else if (sound & LYA) {
+            melody+= "LYA";
+        }
+        else if (sound & CI) {
+            melody += "CI";
+        }  
+            count++;
+        if (count % 3 == 0) {
+            melody += " "; 
+        }         
     }
     cout <<"\n"<< melody;
 }
