@@ -27,29 +27,26 @@ int main()
         }
     }
     for(int i=0;i<12;i++){
-        int sound; 
-      sound= chord[i];
-          if (sound & DO) {
+          if (chord[i] & DO) {
               melody += "Do";
           }
-           if (sound & RE) {
+           if (chord[i] & RE) {
               melody += "Re";
           }
-           if (sound & MI) {
+           if (chord[i] & MI) {
               melody += "Mi";
           }
-          if (sound & FA) {
+          if (chord[i] & FA) {
               melody += "Fa";
           }
-           if (sound & SOL) {
+           if (chord[i] & SOL) {
               melody += "Sol";
           }
-          if (sound & LYA) {
+          if (chord[i] & LYA) {
               melody += "Lya";
           }
-           if (sound & CI) {
+           if (chord[i] & CI) {
               melody += "Ci";
-              sound >> 1;
           }
                melody += " ";          
     }
