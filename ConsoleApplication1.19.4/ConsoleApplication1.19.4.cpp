@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -11,42 +12,48 @@ int main()
     setlocale(LC_ALL, "Russian");
     enum musicalNotes {
         DO=1,  RE=2, MI=4, FA=8, SOL=16, LYA=32, CI=64,
-    };
-  
+    }; 
     string sheetMusic, melody="", note;
-    int count = 0,  sound;
-    cout << "\n Введите музыкальную мелодию ";
-    cin >> sheetMusic;
-    for (int i = 0;i< sheetMusic.size();i++) {
-        note = sheetMusic[i];
-        sound = stoi(note);      
-        if (sound & DO) {
-            melody += "DO";
-      }
-        else if (sound & RE) {
-            melody += "RE";
-     }
-        else if (sound & MI) {
-            melody += "MI";
+    int count = 1;
+    int chord[12]; 
+    for (int i = 0; i < 12; i++) {
+       cout << "\n Введите музыкальный аккорд ";
+       cin >> sheetMusic;     
+       chord[i] = 0;      
+        for (int j = 0; j < 3; j++) {
+            note = sheetMusic[j];
+          int  sound = stoi(note) - 1; 
+          chord[i] |= 1 << sound; 
         }
-        else if (sound & FA) {
-            melody += "FA";
-        }
-        else if (sound & SOL) {
-            melody += "SOL";
-        }
-        else if (sound & LYA) {
-            melody+= "LYA";
-        }
-        else if (sound & CI) {
-            melody += "CI";
-        }  
-            count++;
-        if (count % 3 == 0) {
-            melody += " "; 
-        }         
     }
-    cout <<"\n"<< melody;
+    for(int i=0;i<12;i++){
+        int sound; 
+      sound= chord[i];
+          if (sound & DO) {
+              melody += "Do";
+          }
+           if (sound & RE) {
+              melody += "Re";
+          }
+           if (sound & MI) {
+              melody += "Mi";
+          }
+          if (sound & FA) {
+              melody += "Fa";
+          }
+           if (sound & SOL) {
+              melody += "Sol";
+          }
+          if (sound & LYA) {
+              melody += "Lya";
+          }
+           if (sound & CI) {
+              melody += "Ci";
+              sound >> 1;
+          }
+               melody += " ";          
+    }
+    cout <<"\n"<< melody<<"\n";
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
