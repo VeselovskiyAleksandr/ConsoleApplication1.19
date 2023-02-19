@@ -23,7 +23,7 @@ int main()
         for (int j = 0; j < 3; j++) {
             note = sheetMusic[j];
           int  sound = stoi(note) - 1; 
-          chord[i] |= 1 << sound; 
+          chord[i] |= 1 << sound;
         }
     }
     for(int i=0;i<12;i++){
